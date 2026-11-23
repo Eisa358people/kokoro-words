@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f1e7">
+<title>心に響く言葉</title>
+<style>
+:root{--bg:#eaf8f8;--paper:#fffefa;--ink:#294b56;--muted:#66818a;--gold:#f28a42;--gold2:#ffd2a8;--rose:#f17b68;--line:#cce8e9;--shadow:0 9px 26px #27606a16;--sea:#43b9c8;--sun:#ffb45d}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#e4f7fb 0%,#f4fbf7 46%,#fff7ed 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.65}
+header{padding:28px 18px 24px;text-align:center;background:linear-gradient(135deg,#79d4e7 0%,#a5e4df 48%,#ffe0b5 100%);border-bottom:1px solid #c4e9e6;position:relative;overflow:hidden}
+header:before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:#fff3bd88;right:-42px;top:-75px}
+header:after{content:"";position:absolute;width:230px;height:90px;border-radius:50%;background:#ffffff42;left:-65px;bottom:-62px}
+.brand-mark{font-size:27px;color:#f18b3c;position:relative;z-index:1;text-shadow:0 2px 0 #fff8}
+h1{font-family:"Yu Mincho",serif;font-weight:600;letter-spacing:.12em;font-size:26px;margin:2px 0 4px;color:#245d70;position:relative;z-index:1;text-shadow:0 1px 0 #ffffffa8}
+.subtitle{font-size:13px;color:#376f7b;letter-spacing:.08em;position:relative;z-index:1}
+main{max-width:760px;margin:0 auto;padding:18px 15px 94px}
+.section-title{font-size:17px;font-weight:750;margin:22px 3px 10px;letter-spacing:.04em;color:#28677a}
+.hero{background:linear-gradient(145deg,#fffefa 0%,#fff8ee 100%);border:1.5px solid #ffd1a7;border-radius:22px;padding:23px 20px;box-shadow:var(--shadow);text-align:center;position:relative;overflow:hidden}
+.hero:before{content:"☀";position:absolute;top:8px;right:16px;color:#f5b15e;font-size:27px}
+.hero:after{content:"";position:absolute;left:-45px;bottom:-62px;width:155px;height:100px;border-radius:50%;background:#bcebf0;opacity:.35}
+.eyebrow{font-size:11px;color:#e58a42;letter-spacing:.2em;font-weight:700}
+.hero-quote{font-family:"Yu Mincho",serif;font-size:22px;line-height:1.9;margin:12px 0 10px;white-space:pre-wrap;color:#355765;position:relative;z-index:1}
+.hero-category{font-size:12px;color:#779099}
+.hero-actions{display:flex;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap;position:relative;z-index:1}
+button,.btn{border:1px solid #cde5e5;background:#fffefa;color:#315b65;border-radius:13px;padding:10px 14px;font-size:14px;cursor:pointer;min-height:42px;transition:transform .12s,background .12s,box-shadow .12s}
+button:active{transform:translateY(2px);background:#fff0df;box-shadow:inset 0 2px 5px #8a603018}
+button.primary{background:linear-gradient(135deg,#f5a34f,#ee8050);color:white;border-color:#ed9858;box-shadow:0 4px 10px #ed985833}
+button.soft{background:#e8f7f7;border-color:#bfe4e6;color:#317487}
+button.danger{color:#b45d55}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.toolbar input,.toolbar select,.field input,.field textarea,.field select{width:100%;border:1px solid #cce5e6;border-radius:12px;background:#fffefa;padding:12px;font:inherit;color:var(--ink);font-size:16px}
+.search{flex:1;min-width:170px}.toolbar select{width:auto;min-width:125px}
+.cards{display:grid;grid-template-columns:1fr;gap:14px}
+.word-card{background:linear-gradient(135deg,#ffffff 0%,#f3fbfa 100%);border:1px solid #b9e0e2;border-left:5px solid #f2a15a;border-radius:17px;padding:19px 18px;box-shadow:0 6px 18px #27606a16}
+.word-text{font-family:"Yu Mincho",serif;font-size:20px;font-weight:600;line-height:1.9;white-space:pre-wrap;color:#254f60;letter-spacing:.025em}
+.word-meta{font-size:14px;font-weight:600;color:#d47b3d;margin-top:11px;padding-top:9px;border-top:1px solid #dceeed}
+.card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+.card-actions button{background:#fffefa;border-color:#c5e3e3;color:#356b78}
+.card-actions button[data-act="delete"]{color:#b45d55}
+.card-actions button{padding:7px 11px;min-height:36px;font-size:13px}
+.empty{padding:24px;text-align:center;color:#779099;background:#fffefa;border:1px dashed #b9dfe1;border-radius:14px}
+.panel{background:#fffefa;border:1px solid #cfe7e7;border-radius:17px;padding:17px;box-shadow:var(--shadow)}
+.field{margin:10px 0}.field label{display:block;font-size:13px;color:var(--muted);margin:0 0 5px}
+.field textarea{min-height:105px;resize:vertical}\n.category-add-row{display:flex;gap:8px;align-items:stretch}.category-add-row input{flex:1;min-width:0}.category-add-row button{white-space:nowrap}
+.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fffef9ed;backdrop-filter:blur(12px);border-top:1px solid #cde5e5;display:flex;justify-content:center;gap:8px;padding:9px 8px calc(9px + env(safe-area-inset-bottom));z-index:5}
+nav button{flex:1;max-width:180px;border:0;background:transparent;color:#718b91;font-size:13px;padding:8px 5px}
+nav button.active{color:#d97835;background:#fff0dc;border-radius:13px}
+.hidden{display:none!important}.notice{font-size:12px;color:var(--muted);margin-top:9px}
+.file-label{display:inline-flex;align-items:center;justify-content:center;border:1px solid #cce5e6;border-radius:12px;padding:10px 14px;min-height:42px;background:#fffefa;font-size:14px;cursor:pointer}
+
+.recent-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}
+.recent-heading .section-title{margin:22px 3px 10px}
+button.view-all{border:0;background:transparent;color:#df8240;padding:7px 5px;font-weight:700;min-height:36px}
+.word-card.recent-card{position:relative;padding:17px 17px 15px;border-radius:18px;background:linear-gradient(145deg,#fffefa,#f0fbf9);border-color:#c8e8e6;overflow:hidden}
+.recent-card:after{content:"✧";position:absolute;right:14px;top:8px;color:#f3b36e;font-size:20px;pointer-events:none}
+.recent-card .recent-label{display:inline-block;font-size:11px;letter-spacing:.04em;color:#287b8b;background:#e0f4f2;border-radius:20px;padding:3px 10px;margin-bottom:8px}
+.recent-card .word-text{font-size:19px;padding-right:14px}
+.recent-card .word-meta{border-top:1px solid #dceeed;padding-top:8px;margin-top:10px}
+.recent-card .card-actions button{background:#fffefa}
+@media(min-width:620px){.cards{grid-template-columns:1fr 1fr}.hero{padding:30px}.hero-quote{font-size:25px}main{padding-top:25px}}
+
+/* 老眼でも読みやすいように文字色と太さを調整 */
+:root{
+  --ink:#203f4b;
+  --muted:#405f69;
+}
+body{color:#203f4b}
+.section-title{color:#20566a;font-weight:800}
+.subtitle{color:#285b68;font-weight:600}
+.hero-quote,.word-text{color:#244653}
+.hero-category{color:#526d77;font-weight:600}
+.eyebrow{color:#bd642b;font-weight:800}
+.word-meta{color:#9b542c;font-weight:700}
+.recent-card .recent-label{color:#205f70;font-weight:700}
+button,.btn{color:#244d59;font-weight:600}
+button.soft{color:#205d6d;font-weight:700}
+nav button{color:#405e68;font-weight:600}
+nav button.active{color:#a94f1e;font-weight:800}
+.field label{color:#405d67;font-weight:700;font-size:14px}
+.notice{color:#4c6871}
+.empty{color:#4b6670;font-weight:600}
+.toolbar input,.toolbar select,.field input,.field textarea,.field select{color:#203f4b}
+.toolbar input::placeholder,.field input::placeholder,.field textarea::placeholder{color:#687f86;opacity:1}
+
+
+/* 今日の言葉を主役にし、操作ボタンはカードの外側へ */
+.hero{padding:34px 24px}
+.hero-quote{font-size:25px;line-height:1.85;margin:0;color:#244653;font-weight:600}
+.today-category{margin-top:10px;text-align:center;font-size:13px;color:#526d77;font-weight:600}
+.today-actions{display:flex;justify-content:center;gap:12px;margin:16px 0 28px;flex-wrap:wrap;position:static}
+
+
+.scan-panel{background:#edf9fa;border:1px solid #b9e2e6;border-radius:16px;padding:16px;margin-bottom:20px}
+.scan-title{font-size:17px;font-weight:800;color:#20566a;margin-bottom:6px}
+.scan-button{display:inline-flex;align-items:center;justify-content:center;background:#e0f3f4;border:1px solid #a9d9df;border-radius:12px;padding:12px 16px;color:#205d6d;font-weight:800;cursor:pointer;min-height:46px}
+.scan-preview{display:block;width:100%;max-height:300px;object-fit:contain;margin:12px auto;border-radius:12px;background:#fff}
+.scan-status{margin:10px 0;color:#315c68;font-weight:600}
+#readImageBtn{width:100%;margin-top:8px}
+
+</style>
+<link rel="icon" type="image/png" href="my-words-icon.png">
+<link rel="apple-touch-icon" href="my-words-icon.png">
+<meta name="apple-mobile-web-app-title" content="my words">
+</head>
+<body>
+<header><div class="brand-mark">☀️ 🌴</div><h1>心に響く言葉</h1><div class="subtitle">言葉が心を温め、心が人と人をつなぐ。</div></header>
+<main>
+<section id="home">
+  <div class="section-title">今日の言葉</div>
+  <div class="hero">
+    <div class="hero-quote" id="todayQuote">小さな一歩も、歩き続ければ大きな道になる。</div>
+  </div>
+  <div class="hero-category today-category" id="todayCategory">人生</div>
+  <div class="hero-actions today-actions"><button class="soft" id="anotherBtn">別の言葉に出会う</button><button class="primary" id="shareToday">この言葉を贈る</button></div>
+  <div class="recent-heading"><div class="section-title">最近集めた言葉</div><button class="view-all" id="viewAllWords">すべて見る ›</button></div>
+  <div id="recentWords" class="cards"></div>
+</section>
+<section id="collection" class="hidden">
+  <div class="section-title">言葉を集める</div>
+  <div class="toolbar"><input class="search" id="searchInput" placeholder="言葉やメモを検索"><select id="categoryFilter"><option value="">すべてのカテゴリー</option></select></div>
+  <div id="wordList" class="cards"></div>
+</section>
+<section id="favorites" class="hidden">
+  <div class="section-title">お気に入り</div>
+  <div id="favoriteList" class="cards"></div>
+</section>
+<section id="add" class="hidden">
+  <div class="section-title" id="formTitle">新しい言葉を登録</div>
+  <div class="panel">
+    <div class="scan-panel">
+      <div class="scan-title">📷 写真から言葉を読み取る</div>
+      <p class="notice">ノートや本を撮影すると、文字を読み取って「心に響いた言葉」へ入力します。読み取り後に内容を確認・修正してください。</p>
+      <label class="file-label scan-button" for="cameraImage">カメラで撮影・写真を選ぶ</label>
+      <input id="cameraImage" type="file" accept="image/*" capture="environment" hidden>
+      <img id="scanPreview" class="scan-preview hidden" alt="読み取り用の写真">
+      <div id="scanStatus" class="notice scan-status" aria-live="polite">写真を選ぶと文字を読み取れます。</div>
+      <button type="button" id="readImageBtn" class="soft" disabled>この写真の文字を読み取る</button>
+    </div>
+    <div class="field"><label for="wordText">心に響いた言葉</label><textarea id="wordText" placeholder="ここに言葉を書いてください"></textarea></div>
+    <div class="field"><label for="newCategory">自分のカテゴリーを追加</label><div class="category-add-row"><input id="newCategory" type="text" placeholder="例：おたすけ、家族の思い出、仕事の心得"><button type="button" class="soft" id="addCategoryBtn">カテゴリーを登録</button></div><div class="notice">必要なカテゴリーを自由に作れます。登録後、下の選択欄から選べます。</div></div>
+    <div class="field"><label for="wordCategory">この言葉のカテゴリー</label><select id="wordCategory"><option value="">カテゴリーを選択してください</option></select></div>
+    <div class="field"><label for="wordAuthor">誰が言った言葉ですか？</label><input id="wordAuthor" type="text" placeholder="例：〇〇先生、家族、友人、本の著者など"></div>
+    <div class="field"><label for="wordSource">出典・出どころ（任意）</label><input id="wordSource" type="text" placeholder="例：おさしづ（M33・9・21）、本の名前・ページ、講話など"></div>
+    <div class="field"><label for="wordMemo">出会った時の気持ち・メモ（任意）</label><textarea id="wordMemo" placeholder="どんな時に心に響いたか、誰に届けたいかなど"></textarea></div>
+    <div class="form-actions"><button class="primary" id="saveWord">保存する</button><button id="cancelEdit">キャンセル</button></div>
+    <div class="notice">登録した言葉は、この端末のブラウザに保存されます。</div>
+  </div>
+  <div class="section-title">データの保存・引き継ぎ</div>
+  <div class="panel">
+    <p style="margin-top:0;font-size:14px">機種変更や別の端末で使うときは、バックアップを書き出して保管してください。</p>
+    <div class="form-actions"><button id="exportBtn">バックアップを書き出す</button><label class="file-label">バックアップを読み込む<input id="importFile" type="file" accept="application/json" hidden></label></div>
+  </div>
+</section>
+</main>
+<nav>
+<button class="active" data-tab="home">⌂ 今日の言葉</button><button data-tab="collection">▤ 言葉を集める</button><button data-tab="favorites">♡ お気に入り</button><button data-tab="add">＋ 登録する</button>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script>
+
+let scanFile=null;
+const cameraInput=document.getElementById('cameraImage');
+const scanPreview=document.getElementById('scanPreview');
+const scanStatus=document.getElementById('scanStatus');
+const readImageBtn=document.getElementById('readImageBtn');
+cameraInput.addEventListener('change',()=>{
+  const file=cameraInput.files&&cameraInput.files[0];
+  if(!file)return;
+  if(!file.type.startsWith('image/')){scanStatus.textContent='画像ファイルを選んでください。';return}
+  scanFile=file;
+  scanPreview.src=URL.createObjectURL(file);
+  scanPreview.classList.remove('hidden');
+  readImageBtn.disabled=false;
+  scanStatus.textContent='写真を確認して、「この写真の文字を読み取る」を押してください。';
+});
+readImageBtn.addEventListener('click',async()=>{
+  if(!scanFile)return;
+  if(!window.Tesseract){scanStatus.textContent='文字読み取り機能を読み込めませんでした。インターネット接続を確認して再読み込みしてください。';return}
+  readImageBtn.disabled=true;
+  cameraInput.disabled=true;
+  scanStatus.textContent='文字を読み取っています。写真や通信環境によって少し時間がかかります…';
+  try{
+    const result=await Tesseract.recognize(scanFile,'jpn+eng',{
+      logger:m=>{
+        if(m.status==='loading language traineddata')scanStatus.textContent='日本語の読み取りデータを準備しています…';
+        else if(m.status==='recognizing text')scanStatus.textContent='文字を読み取っています… '+Math.round((m.progress||0)*100)+'%';
+      }
+    });
+    const text=(result.data.text||'').replace(/\r/g,'').replace(/\n{3,}/g,'\n\n').trim();
+    if(!text){scanStatus.textContent='文字を読み取れませんでした。明るい場所で、文字にピントを合わせて撮り直してください。';return}
+    const target=document.getElementById('wordText');
+    target.value=target.value.trim()?target.value.trim()+'\n\n'+text:text;
+    target.focus();
+    scanStatus.textContent='読み取りました！文章を確認・修正してから、カテゴリーなどを選んで保存してください。';
+  }catch(err){
+    console.error(err);
+    scanStatus.textContent='読み取りに失敗しました。通信環境を確認し、写真を選び直してお試しください。';
+  }finally{
+    readImageBtn.disabled=false;
+    cameraInput.disabled=false;
+  }
+});
+
+const KEY='kokoro_words_v1';
+const CATEGORY_KEY='kokoro_categories_v1';
+let customCategories=loadCategories();
+function loadCategories(){try{const v=JSON.parse(localStorage.getItem(CATEGORY_KEY));return Array.isArray(v)?v.filter(x=>typeof x==='string'&&x.trim()):[]}catch(e){return []}}
+const samples=[
+{id:'s1',text:'小さな一歩も、歩き続ければ大きな道になる。',category:'人生',memo:'',favorite:false,created:Date.now()-3000},
+{id:'s2',text:'誰かにかけた優しい言葉は、自分の心にもあたたかく残る。',category:'優しさ',memo:'',favorite:false,created:Date.now()-2000},
+{id:'s3',text:'当たり前と思う毎日の中に、感謝できることがある。',category:'感謝',memo:'',favorite:false,created:Date.now()-1000}
+];
+let words=loadWords(),editingId=null,todayIndex=0;
+function loadWords(){try{const x=JSON.parse(localStorage.getItem(KEY));return Array.isArray(x)?x:[]}catch(e){return []}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(words))}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function categories(){return [...new Set([...customCategories,...words.map(w=>w.category)])].filter(Boolean)}
+function refreshFilters(){const list=categories(),f=document.getElementById('categoryFilter'),v=f.value,sel=document.getElementById('wordCategory'),sv=sel.value;f.innerHTML='<option value="">すべてのカテゴリー</option>'+list.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');f.value=list.includes(v)?v:'';sel.innerHTML='<option value="">カテゴリーを選択してください</option>'+list.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');sel.value=list.includes(sv)?sv:''}
+function card(w){return `<article class="word-card"><div class="word-text">${esc(w.text)}</div><div class="word-meta">${esc(w.category)}${w.author?' ・ '+esc(w.author):''}${w.source?' ・ 出典：'+esc(w.source):''}${w.memo?' ・ '+esc(w.memo):''}</div><div class="card-actions"><button data-act="fav" data-id="${esc(w.id)}">${w.favorite?'♥ お気に入り済み':'♡ お気に入り'}</button><button data-act="share" data-id="${esc(w.id)}">贈る</button><button data-act="edit" data-id="${esc(w.id)}">編集</button><button class="danger" data-act="delete" data-id="${esc(w.id)}">削除</button></div></article>`}
+function recentCard(w){return `<article class="word-card recent-card"><div class="recent-label">${esc(w.category)}</div><div class="word-text">${esc(w.text)}</div><div class="word-meta">${w.author?esc(w.author):''}${w.source?' ・ 出典：'+esc(w.source):''}${w.memo?' ・ メモ：'+esc(w.memo):''}</div><div class="card-actions"><button data-act="fav" data-id="${esc(w.id)}">${w.favorite?'♥ お気に入り済み':'♡ お気に入り'}</button><button data-act="share" data-id="${esc(w.id)}">言葉を贈る</button></div></article>`}
+function render(){refreshFilters();const sorted=[...words].sort((a,b)=>b.created-a.created);document.getElementById('recentWords').innerHTML=sorted.length?sorted.slice(0,3).map(recentCard).join(''):'<div class="empty">まだ言葉がありません。最初の一言を登録してみましょう。</div>';document.getElementById('wordList').innerHTML=filtered(sorted).map(card).join('')||'<div class="empty">該当する言葉はありません。</div>';document.getElementById('favoriteList').innerHTML=sorted.filter(w=>w.favorite).map(card).join('')||'<div class="empty">お気に入りはまだありません。</div>';renderToday()}
+function filtered(list){const q=document.getElementById('searchInput').value.trim().toLowerCase(),c=document.getElementById('categoryFilter').value;return list.filter(w=>(!c||w.category===c)&&(!q||(w.text+' '+w.memo+' '+(w.author||'')+' '+(w.source||'')).toLowerCase().includes(q)))}
+function renderToday(){const list=words.length?words:[{text:'心に残る言葉を、ひとつずつ集めていきましょう。',category:'はじめの一歩'}];const w=list[((todayIndex%list.length)+list.length)%list.length];document.getElementById('todayQuote').textContent=w.text;document.getElementById('todayCategory').textContent=w.category}
+function showTab(tab){document.querySelectorAll('main section').forEach(s=>s.classList.toggle('hidden',s.id!==tab));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));if(tab==='add'&&!editingId)resetForm();window.scrollTo({top:0,behavior:'smooth'})}
+function resetForm(){editingId=null;document.getElementById('formTitle').textContent='新しい言葉を登録';document.getElementById('wordText').value='';document.getElementById('wordCategory').value='';document.getElementById('wordMemo').value='';document.getElementById('wordAuthor').value='';document.getElementById('wordSource').value=''}
+function startEdit(id){const w=words.find(x=>x.id===id);if(!w)return;editingId=id;document.getElementById('formTitle').textContent='言葉を編集';document.getElementById('wordText').value=w.text;document.getElementById('wordCategory').value=w.category;document.getElementById('wordMemo').value=w.memo||'';document.getElementById('wordAuthor').value=w.author||'';document.getElementById('wordSource').value=w.source||'';showTab('add')}
+async function shareWord(w){const details=[`「${w.text}」`,w.author?`${w.author}`:'',w.source?`出典：${w.source}`:'','心に響く言葉'].filter(Boolean);const text=details.join('\n\n');if(navigator.share){try{await navigator.share({text})}catch(e){}}else if(navigator.clipboard){await navigator.clipboard.writeText(text);alert('言葉・名前・出典をコピーしました。LINEなどに貼り付けてください。')}else{prompt('この言葉をコピーしてください',text)}}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+document.getElementById('viewAllWords').onclick=()=>showTab('collection');
+document.getElementById('anotherBtn').onclick=()=>{todayIndex++;renderToday()};
+document.getElementById('shareToday').onclick=()=>{const list=words.length?words:[{text:'心に残る言葉を、ひとつずつ集めていきましょう。',category:'はじめの一歩'}];const w=list[((todayIndex%list.length)+list.length)%list.length];shareWord(w)};
+document.getElementById('saveWord').onclick=()=>{const text=document.getElementById('wordText').value.trim();if(!text){alert('言葉を入力してください。');return}const category=document.getElementById('wordCategory').value;if(!category){alert('先にカテゴリーを登録して選択してください。');return}const memo=document.getElementById('wordMemo').value.trim(),author=document.getElementById('wordAuthor').value.trim(),source=document.getElementById('wordSource').value.trim();if(editingId){const w=words.find(x=>x.id===editingId);Object.assign(w,{text,category,memo,author,source})}else words.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),text,category,memo,author,source,favorite:false,created:Date.now()});persist();resetForm();render();showTab('collection')};
+document.getElementById('cancelEdit').onclick=()=>{resetForm();showTab('collection')};
+document.getElementById('searchInput').oninput=()=>render();document.getElementById('categoryFilter').onchange=()=>render();
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-act]');if(!b)return;const w=words.find(x=>x.id===b.dataset.id);if(!w)return;switch(b.dataset.act){case'fav':w.favorite=!w.favorite;persist();render();break;case'share':shareWord(w);break;case'edit':startEdit(w.id);break;case'delete':if(confirm('この言葉を削除しますか？')){words=words.filter(x=>x.id!==w.id);persist();render()}break}});
+document.getElementById('addCategoryBtn').onclick=()=>{const input=document.getElementById('newCategory'),name=input.value.trim();if(!name){alert('カテゴリー名を入力してください。');input.focus();return}if(categories().some(c=>c.toLowerCase()===name.toLowerCase())){alert('そのカテゴリーは既に登録されています。');return}customCategories.push(name);localStorage.setItem(CATEGORY_KEY,JSON.stringify(customCategories));const select=document.getElementById('wordCategory');render();select.value=name;input.value='';alert('「'+name+'」をカテゴリーに登録しました。')};
+document.getElementById('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify({app:'心に響く言葉',version:2,words,categories:customCategories},null,2)],{type:'application/json'}),a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download='心に響く言葉_バックアップ.json';a.click();URL.revokeObjectURL(url)};
+document.getElementById('importFile').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text()),arr=Array.isArray(data)?data:data.words;if(!Array.isArray(arr))throw Error();if(confirm('現在の言葉をバックアップの内容に置き換えますか？')){words=arr.filter(w=>w&&typeof w.text==='string').map((w,i)=>({id:String(w.id||Date.now()+i),text:w.text,category:String(w.category||'その他'),memo:String(w.memo||''),author:String(w.author||''),source:String(w.source||''),favorite:!!w.favorite,created:Number(w.created||Date.now())}));if(Array.isArray(data.categories))customCategories=data.categories.filter(x=>typeof x==='string'&&x.trim());localStorage.setItem(CATEGORY_KEY,JSON.stringify(customCategories));persist();render();alert('バックアップを読み込みました。')}}catch(err){alert('バックアップファイルを読み込めませんでした。')}e.target.value=''};
+render();
+</script>
+</body>
+</html>
